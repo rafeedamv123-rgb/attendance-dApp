@@ -1,0 +1,75 @@
+body {
+  background-color: rgb(218, 226, 187);
+  color: black;
+}
+.overlay {
+  background-color: #442106;
+  padding-top: 5px;
+  width: 600vh;
+  padding-bottom: 5px;
+  align-items: center;
+}
+.heading {
+  font-size: 50px;
+  margin-right: 500px;
+  font-family: "Times New Roman", Times, serif;
+  color: rgb(252, 250, 253);
+}
+.subheading {
+  font-size: 20px;
+  font-family: "Times New Roman", Times, serif;
+  font-style: italic;
+  color: rgb(251, 249, 252);
+}
+.student {
+  background-color: #442106;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  margin-right: 10px;
+}
+.teacher {
+  background-color: #442106;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+.markattendance {
+  background-color: #0f4406;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  margin-top: 20px;
+}
+.course {
+  margin-top: 20px;
+  padding: 10px;
+  border: 1px solid #4d0909;
+  border-radius: 5px;
+  width: 300px;
+  background-color: #291010;
+}
+.close {
+  display: flex;
+  gap: 10px;
+  color: white;
+  padding: 5px 10px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+.connect-button {
+  background-color: #0f4406;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  margin-top: 20px;
+}
