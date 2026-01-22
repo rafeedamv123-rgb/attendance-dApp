@@ -10,5 +10,5 @@ export default defineConfig({
       },
     }),
   ],
-  base: "/attendance-dApp",
+  base: "/attendance-dApp/",
 });
