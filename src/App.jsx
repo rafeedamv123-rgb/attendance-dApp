@@ -1,8 +1,8 @@
 import { useEffect, useState } from "react";
 import { ethers } from "ethers";
 import abi from "./abi.json";
-import Teacher from "../../attendance-dApp/teacher.jsx";
-import Student from "../../attendance-dApp/student.jsx";
+import Teacher from "./teacher.jsx";
+import Student from "./student.jsx";
 import "./App.css";
 
 const contractAddress = "0xb0f5e0771ba791DB4eE518D73055582a28bBe712";
