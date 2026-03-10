@@ -1,3 +1,7 @@
+import Card from "./components/Card";
+import Button from "./components/Button";
+import Input from "./components/Input";
+
 function Teacher({
   isTeacher,
   courseCode,
@@ -6,46 +10,59 @@ function Teacher({
   setDuration,
   openAttendance,
   closeAttendance,
+  txPending,
 }) {
   if (!isTeacher) {
-    return <p>You are not the teacher for this contract.</p>;
+    return (
+      <Card title="Teacher access" subtitle="Only the contract teacher can open or close attendance.">
+        <p className="teacher-denied">
+          You are not the teacher for this contract. Use the Student tab to mark attendance.
+        </p>
+      </Card>
+    );
   }
 
   return (
-    <div>
-      <h2>Teacher Page</h2>
-
-      <input
-        className="course"
+    <Card
+      title="Teacher"
+      subtitle="Open or close an attendance session for a course."
+    >
+      <Input
+        label="Course code"
         type="number"
-        placeholder="Course Code"
+        placeholder="e.g. 101"
         value={courseCode}
-        onChange={(e) => setCourseCode(e.target.value)}
+        onChange={setCourseCode}
+        disabled={txPending}
       />
-
-      <br />
-      <br />
-
-      <input
-        className="course"
+      <Input
+        label="Duration (seconds)"
         type="number"
-        placeholder="Duration (seconds)"
+        placeholder="e.g. 300"
         value={duration}
-        onChange={(e) => setDuration(e.target.value)}
+        onChange={setDuration}
+        hint="How long the attendance window stays open."
+        disabled={txPending}
       />
-
-      <br />
-      <br />
-      <div className="close">
-        <button className="markattendance" onClick={openAttendance}>
-          Open Attendance
-        </button>
-
-        <button className="markattendance" onClick={closeAttendance}>
-          Close Attendance
-        </button>
+      <div className="teacher-actions">
+        <Button
+          variant="success"
+          loading={txPending}
+          disabled={txPending || !courseCode || !duration}
+          onClick={openAttendance}
+        >
+          Open attendance
+        </Button>
+        <Button
+          variant="secondary"
+          loading={txPending}
+          disabled={txPending || !courseCode}
+          onClick={closeAttendance}
+        >
+          Close attendance
+        </Button>
       </div>
-    </div>
+    </Card>
   );
 }
 

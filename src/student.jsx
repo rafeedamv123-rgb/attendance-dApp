@@ -1,24 +1,31 @@
-import "./App.css";
-function Student({ courseCode, setCourseCode, markAttendance }) {
+import Card from "./components/Card";
+import Button from "./components/Button";
+import Input from "./components/Input";
+
+function Student({ courseCode, setCourseCode, markAttendance, txPending }) {
   return (
-    <div className="studentpagediv">
-      <h2 className="studentpage">Student Page</h2>
-
-      <input
-        className="course"
+    <Card
+      title="Mark attendance"
+      subtitle="Enter the course code and submit before the session closes."
+    >
+      <Input
+        label="Course code"
         type="number"
-        placeholder="Course Code"
+        placeholder="e.g. 101"
         value={courseCode}
-        onChange={(e) => setCourseCode(e.target.value)}
+        onChange={setCourseCode}
+        disabled={txPending}
       />
-
-      <br />
-      <br />
-
-      <button className="markattendance" onClick={markAttendance}>
-        Mark Attendance
-      </button>
-    </div>
+      <Button
+        variant="primary"
+        size="lg"
+        loading={txPending}
+        disabled={txPending || !courseCode}
+        onClick={markAttendance}
+      >
+        Mark attendance
+      </Button>
+    </Card>
   );
 }
 
